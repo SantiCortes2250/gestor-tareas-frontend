@@ -1,47 +1,51 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div id="app">
+    <nav>
+      <router-link to="/">Inicio</router-link>
+      <router-link to="/tasks" v-if="user">Mis Tareas</router-link>
+      <router-link to="/login" v-if="!user">Iniciar Sesión</router-link>
+      <router-link to="/register" v-if="!user">Registrarse</router-link>
+      <button v-if="user" @click="logout">Cerrar Sesión</button>
+    </nav>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>
 
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import api from './axios'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const user = ref(null)
+
+onMounted(() => {
+  const data = localStorage.getItem('user')
+  if (data) {
+    user.value = JSON.parse(data)
+  }
+})
+
+const logout = async () => {
+  await api.post('/logout')
+  localStorage.removeItem('user')
+  user.value = null
+  router.push('/login')
+}
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
+nav {
+  background: #f5f5f5;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+main {
+  padding: 2rem;
 }
 </style>
