@@ -3,10 +3,23 @@
 </template>
 
 <script setup>
-const logout = async () => {
-  await api.post('/logout')
-  localStorage.removeItem('user')
-  router.push('/login')
-}
+import api from '../../axios';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
+
+const logout = async () => {
+  try {
+    await api.post('/api/logout');
+
+    // Elimina el token y el usuario del almacenamiento local
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+    // Redirige al login
+    router.push('/login');
+  } catch (error) {
+    console.error('Error al cerrar sesión:', error.response?.data || error);
+  }
+};
 </script>
