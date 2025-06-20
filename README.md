@@ -1,42 +1,53 @@
-# 📝 Gestor de Tareas - Laravel + Vue.js
+# 📝 Gestor de Tareas - Vue.js + Laravel
 
-Aplicación fullstack de gestión de tareas con autenticación, roles de usuario y CRUD completo. Construido con **Laravel (API REST)** y **Vue.js 3 (Frontend SPA)**.
+Aplicación **Fullstack** de gestión de tareas construida con **Vue 3** en el frontend y **Laravel 11 API REST** como backend. Implementa autenticación basada en **tokens** usando Laravel Sanctum.
 
-## 🚀 Demo en vivo
+## 🚀 Demo en Vivo
 
-🔗 [Frontend en Vercel](https://gestor-tareas-frontend.vercel.app)  
-🔗 [Backend en Render](https://gestor-tareas-api.onrender.com)
+🔗 **Frontend:** [https://tasks3-app.netlify.app](https://tasks3-app.netlify.app)  
+🔗 **Backend (API):** [https://laravel-api-nj2d.onrender.com/api/status](https://laravel-api-nj2d.onrender.com/api/status)
 
-## 🧰 Stack Tecnológico
+---
 
-- Laravel 11 + Sanctum (API y autenticación)
-- Vue 3 + Vue Router (SPA)
-- TailwindCSS (Estilos)
-- Axios (HTTP cliente)
-- SQLite / PostgreSQL (Base de datos)
-- Render (Backend) + Vercel (Frontend)
+## 🧱 Stack Tecnológico
+
+- ✅ **Vue 3** + **Vue Router** (SPA)
+- ✅ **TailwindCSS** (Estilos)
+- ✅ **Axios** (HTTP cliente)
+- ✅ **Laravel 11** + **Sanctum** (API y autenticación con tokens)
+- ✅ **PostgreSQL** (Base de datos en producción)
+- ✅ **Render** (Backend)
+- ✅ **Netlify** (Frontend)
+
+---
 
 ## ✨ Funcionalidades
 
-- Registro e inicio de sesión con Sanctum
-- Roles: Usuario y Administrador
-- CRUD de tareas: crear, editar, eliminar, marcar como completada
-- Vistas separadas para usuario normal y administrador
-- Validaciones, alertas y filtros de estado
+- 🔐 Registro e inicio de sesión autenticado con tokens
+- 🧑‍🤝‍🧑 Roles: Usuario y Administrador
+- ✅ CRUD completo de tareas:
+  - Crear nueva tarea
+  - Editar
+  - Eliminar
+  - Marcar como completada
+- 👁️‍🗨️ Vistas diferenciadas según rol
+- ⚠️ Validaciones y mensajes de error amigables
+- 🔎 Filtros por estado (completadas / pendientes)
 
-## 🖼️ Capturas
+---
 
-![Pantalla principal](./screenshots/dashboard.png)
-![Formulario de login](./screenshots/login.png)
 
-## 📦 Instalación
+![Dashboard](./screenshots/dashboard.png)
+![Login](./screenshots/login.png)
 
-### Backend
+---
+
+## 🛠️ Instalación Local (Desarrolladores)
+
+### 📦 Frontend
 
 ```bash
-git clone https://github.com/tuusuario/gestor-tareas-api.git
-cd gestor-tareas-api
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
+git clone https://github.com/tuusuario/gestor-tareas-frontend.git
+cd gestor-tareas-frontend
+npm install
+npm run dev
