@@ -36,18 +36,12 @@ Aplicación **Fullstack** de gestión de tareas construida con **Vue 3** en el f
 
 ---
 
-
-![Dashboard](./screenshots/dashboard.png)
-![Login](./screenshots/login.png)
-
----
-
 ## 🛠️ Instalación Local (Desarrolladores)
 
 ### 📦 Frontend
 
 ```bash
-git clone https://github.com/tuusuario/gestor-tareas-frontend.git
+git clone https://github.com/SantiCortes2250/gestor-tareas-frontend
 cd gestor-tareas-frontend
 npm install
 npm run dev
